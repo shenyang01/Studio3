@@ -3,7 +3,6 @@ package text.pite.com.studio3.ui;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -55,9 +54,9 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         return LayoutInflater.from(this).inflate(R.layout.activity_main,null);
     }
 
+    //设置缩放大小
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        Log.e("tag","positionOffset  "+positionOffset+"   position  "+position%list.size());
             binding.viewPager.findViewWithTag(position+1).setScaleY(1f+coefficient*positionOffset);
             binding.viewPager.findViewWithTag(position).setScaleY(1f+coefficient-coefficient*positionOffset);
     }
