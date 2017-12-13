@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('D:/androidStutioProject/Studio3/app/libs/poi-3.9.jar')
+    implementation files('D:/androidStutioProject/Studio3/app/libs/gson-2.2.4.jar')
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
