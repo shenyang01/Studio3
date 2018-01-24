@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-    android {
+android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "text.pite.com.studio3"
@@ -25,7 +25,11 @@ apply plugin: 'com.android.application'
         }
     }
 }
-
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -35,4 +39,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:design:26.1.0'
     implementation files('libs/gson-2.2.4.jar')
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.aliyun.ams:alicloud-android-hotfix:3.0.2'
 }

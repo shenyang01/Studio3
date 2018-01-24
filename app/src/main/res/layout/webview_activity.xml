@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- <WebView
+             android:id="@+id/webView"
+             android:layout_width="match_parent"
+             android:layout_height="100dp"/>-->
+        <Button
+            android:id="@+id/start"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/start"/>
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/stop"/>
+
+        <text.pite.com.studio3.pite.utils.MySurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>

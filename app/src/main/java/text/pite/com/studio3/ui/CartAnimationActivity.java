@@ -27,6 +27,7 @@ import text.pite.com.studio3.databinding.CartanimationActivityBinding;
  * @ company pite
  * @ name sy
  * @ time 2017/12/14
+ * 购物车 抛物线动画
  */
 
 public class CartAnimationActivity extends BaseActivity implements MyViewHolder.ViewOnclick {

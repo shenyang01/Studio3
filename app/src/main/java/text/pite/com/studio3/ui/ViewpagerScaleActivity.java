@@ -20,6 +20,9 @@ import text.pite.com.studio3.R;
 import text.pite.com.studio3.adapter.ViewpagerAdapter;
 import text.pite.com.studio3.databinding.ActivityMainBinding;
 
+/***
+ *  view 实现画廊模式及 textSwitcher 垂直滚动
+ */
 public class ViewpagerScaleActivity extends BaseActivity implements ViewPager.OnPageChangeListener, ViewpagerAdapter.ViewPagerOnClick, View.OnClickListener {
     private List<Integer> list;
     private ActivityMainBinding binding;
@@ -28,6 +31,7 @@ public class ViewpagerScaleActivity extends BaseActivity implements ViewPager.On
     private String[] string;
     private int i;
     private LayoutInflater inflater;
+    private boolean istrue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class ViewpagerScaleActivity extends BaseActivity implements ViewPager.On
             else
                 list.add(R.mipmap.mm);
         }
-        string = new String[]{"1111", "2222", "3333", "4444"};
+        string = new String[]{"1111", "2222", "3333", "dzq"};
         adapter = new ViewpagerAdapter(this, list, this);
         binding.viewPager.setAdapter(adapter);
         binding.viewPager.setOffscreenPageLimit(3); //设置一页显示数目
@@ -80,7 +84,7 @@ public class ViewpagerScaleActivity extends BaseActivity implements ViewPager.On
     Thread t = new Thread(new Runnable() {
         @Override
         public void run() {
-            while (true) {
+            while (!istrue) {
                 Message msg = new Message();
                 msg.what = i % string.length;
                 handler.sendMessage(msg);
@@ -136,7 +140,7 @@ public class ViewpagerScaleActivity extends BaseActivity implements ViewPager.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        t.stop();
+        istrue = true;
         handler.removeCallbacksAndMessages(null);
         handler = null;
     }

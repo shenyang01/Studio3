@@ -40,4 +40,10 @@ public abstract class BaseActivity extends Activity {
         }
         toast.show();
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim
+                .slide_out_right);
+    }
 }

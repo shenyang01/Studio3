@@ -2,7 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="text.pite.com.studio3">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 外部存储读权限，调试工具加载本地补丁需要 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
+        android:name=".ui.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,15 +20,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.ViewpagerScaleActivity">
-
-        </activity>
-        <activity android:name=".ui.CartAnimationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.CartAnimationActivity"/>
+        <activity android:name=".ui.MyViewActivity">
+
+        </activity>
+        <activity android:name=".ui.RecyclerTilteActivity">
+
+        </activity>
+        <activity android:name=".ui.WebViewActivity">
+        </activity>
+
+        <activity android:name=".ui.CameraActivity">
+        </activity>
+
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="	24742336-1"/>
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="82df70aa55040d87921147327fb8e235"/>
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDi9QBXMTh5yyfv94S/9DuVlMz2/wxQu8/T26wrm999iwdw2qMvfJsVsaehf9M1i8t0Y98BY25pWOxlQSfJKeKTYR2UK6csQxhO/6pVqK5pLSBp/uGXzFboMgf6NXNckCHGcBnnYzi169W7NSDiXzq73GIqA0pnF/FtXXNwzx/OyOh6VB6wr1j07f9m5Gy7s4tjWi0c+miVV04nUGAhQJxee+TveGh197BjQA1lowxE8Gck2v5GbnblZKKTgD9cmibbCpGI8yH7RkNl1oPIgogSgloJNHnQJo/9GSmk49OA7mTsLWKw5K2B5VC7GEuWE18CBxSv1ctlRrC9njuiv8stAgMBAAECggEAXs67+rB8CBy+rTa3xLwQ2/aR/Kgki+E4+yZr8Lenj7kxPYqH2sFxw4k4HnXYVCj2r8M8mEbiC63y6oViSl1t4eUSxx/JMOtCT1Xr4OabHSKVxNGNiaz5rPuha3tCmqs3AL85gvhm60/+M7sI5qejUHDKrQQ8434UA3yjSb+saOOpHu91JbKVdtuwJYMwhOgN8QrVLBRZ/6HTKNRA8RPDERtHYmuvGoMhahS8BWLPkmHsoddyzxjkHERSj0RDe/6tjWEIlWn+6N3KDrIAcvUnWaKkgcXGf3bm1U2LSRX9yv8sSUVcX2EosBCQ4bkj6wd6FPOIPc/MqyYVabpcfE7BYQKBgQDx1hWcsO3weg6XVsP6/WrCHYUM4WQxzJOKRNro7ewlD0LQyMoCezAVx9AvadccAzSyEzjM+ijfGm9GcaIlLx6D3TOpr6BrtHIixCSLwTPndSjNJDsEYvJ1YUjRI+4GyhpKlo3fK0Q8u58Qb8n30vkozVyhopgiEjv58GFZGtalVQKBgQDwP9QhivvZjnO7DOzy0oraE1Isdu6gTNRPE4KH74BNQncPs+9+mUaIsFgfy1BPea85Q9QaBxsegCgLIRCn13P5IbRAY3fVBhXwnpcTBAKOCU5iUNpy0yS6br0pV1iTE0M8YILIH2qPVy7kn9tS2n6juDo6L4L3Rir/XdetjT0OeQKBgATTnQLPlTAjf38NwEOWIzdUl382UGWeC6PK1AOqG/hxYYgBOebqxn7oygLoPd7VQYv8TjnpFD+/q1Dgm7faROWk2I8ebjk4FL8U4xXW+U45TGMrwfHId8ZX9rgV235PMk8iyhoWJvp/VCFj2cgUcdyanKqtMBQeAQxv+8Fng7kxAoGAGFov83J2EthYrMYjon1q6633r2Ai0gbXomhU29iQBcTN8r6HcSqyNprBY/+k1Vl9RG22qyi7O/07kd05Jfo13DPpZHlwpRwnzysUHy5R3/nbgyW07tyuJWOiMvWSmd3i+9TAjO56S6tHqo71mVFics/yvwEf4lavdxEZEpN1c+kCgYEAqsgKFvl784do8Br6JO1xswSHmy+PhxN6kf+DWfJoCIzXMnocejOgtLoZUr2HShkIAn5Oo2zGogh2z3vPo8McH8eCdoIIH7T/t7wtaUHE9GdP02ReA8XE+5irzLorxUn6WSGLATEmoYMqKDNtxK2+142PLcj1+ewN/DLgSDQxpNM="/>
     </application>
 
 </manifest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="startColor" format="color"/>
+    <attr name="stopColor" format="color"/>
+    <attr name="radius" format="dimension"/>
+    <attr name="stepNum" format="integer"/>
+    <attr name="lineSize" format="dimension"/>
+    <declare-styleable name="ScheduleView">
+        <attr name="startColor"/>
+        <attr name="stopColor"/>
+        <attr name="radius"/>
+        <attr name="stepNum"/>
+        <attr name="lineSize"/>
+    </declare-styleable>
+</resources>

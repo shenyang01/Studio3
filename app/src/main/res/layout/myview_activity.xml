@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <text.pite.com.studio3.pite.utils.ScheduleView
+            android:id="@+id/schedule_View"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:stepNum="3"
+            app:lineSize="2dp"
+            app:radius="5dp"
+            app:startColor="@color/gray"
+            app:stopColor="@color/colorAccent"
+            android:background="@color/colorPrimary"/>
+        <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/myView_minus"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/minus"/>
+        <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/myView_bt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/next"/>
+
+        <TextView
+            android:id="@+id/myView_tv"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center"
+            android:text="@string/subscribe"/>
+    </LinearLayout>
+</layout>

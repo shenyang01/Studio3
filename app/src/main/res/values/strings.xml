@@ -5,4 +5,10 @@
     <string name="empty">暂无数据55555</string>
     <string name="title">购物车选中动画</string>
     <string name="add">买一件</string>
+    <string name="subscribe">subscribe 订阅</string>
+    <string name="next">下一步</string>
+    <string name="minus">上一步</string>
+    <string name="start">开始</string>
+    <string name="stop">结束</string>
+    <string name="sy">沈阳</string>
 </resources>
